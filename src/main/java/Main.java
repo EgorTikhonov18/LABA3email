@@ -9,26 +9,21 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Main {
-
+// [a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.] норм регекс
+// [a-zA-Z0-9]+[a-zA-Z0-9_.+]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.] исправил
     public static void main(String[] args) throws IOException {
         Document doc = Jsoup.connect( "https://it.wikireading.ru/4064").get();
 
-        Pattern p = Pattern.compile("[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+");
+        Pattern p = Pattern.compile("[a-zA-Z0-9]+[a-zA-Z0-9_.+]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+ ");
         Matcher matcher = p.matcher(doc.text());
-        Set<String> emails = new HashSet<String>();
+        Set<String> emails = new HashSet< >();
         while (matcher.find()) {
             emails.add(matcher.group());
         }
 
-        Set<String> links = new HashSet<String>();
-
-        Elements elements = doc.select("a[href]");
-        for (Element e : elements) {
-            links.add(e.attr("href"));
-        }
 
         System.out.println(emails);
-        System.out.println(links);
+        //System.out.println(links);
 
     }
 
