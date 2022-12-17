@@ -9,8 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Main {
-// [a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.] норм регекс
-// [a-zA-Z0-9]+[a-zA-Z0-9_.+]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.] исправил
+
     public static void main(String[] args) throws IOException {
         Document doc = Jsoup.connect( "https://it.wikireading.ru/4064").get();
 
